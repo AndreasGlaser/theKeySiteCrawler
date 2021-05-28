@@ -15,6 +15,10 @@
         <td><a href="blogs/{{blog.id}}">{{ blog.title }}</a></td>
         <td>{{ blog.creationDate }}</td>
         <td>{{ blog.content}}</td>
+
+        <td><div *ngFor="let item of blog.countOfWords | keyvalue">
+          Wort: <b>{{item.key}}</b> Anzahl: <b>{{item.value}}</b>
+        </div></td>
       </tr>
       </tbody>
     </table>

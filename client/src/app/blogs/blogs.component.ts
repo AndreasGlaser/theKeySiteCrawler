@@ -9,7 +9,7 @@ import {Blog} from "../blog";
 })
 export class BlogsComponent implements OnInit {
 
-  blogs: Blog[] = [{id:"1", title:"title", content:"content", creationDate:0, lastUpdated:0}];
+  blogs: Blog[] = [];
 
   constructor(private blogService: BlogService) { }
 
