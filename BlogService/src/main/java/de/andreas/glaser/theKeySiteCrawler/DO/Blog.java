@@ -1,6 +1,7 @@
 package de.andreas.glaser.theKeySiteCrawler.DO;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -9,11 +10,14 @@ import java.util.Date;
 import java.util.Map;
 
 @Entity
+@NoArgsConstructor
+@Table(name = "blog")
 public class Blog {
 
     @Id
     @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Getter
@@ -30,14 +34,11 @@ public class Blog {
 
     @Getter
     @Setter
+    @Column(length = 10000)
     private String content;
 
     @Getter
     @Setter
     @ElementCollection
-    @CollectionTable(name = "blog_word_count",
-            joinColumns = {@JoinColumn(name = "blog_id", referencedColumnName = "id")})
-    @MapKeyColumn(name = "word")
-    @Column(name = "count")
-    private Map<String, Integer> wordCount;
+    private Map<String, Integer> countOfWords;
 }

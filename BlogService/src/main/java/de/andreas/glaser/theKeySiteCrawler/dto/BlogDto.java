@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.util.Map;
 
-public class Blog {
+public class BlogDto {
 
     @Getter
     @Setter

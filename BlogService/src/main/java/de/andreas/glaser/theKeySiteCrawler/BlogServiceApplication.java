@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Bean;
 
 import java.sql.Date;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.stream.Stream;
 
 @SpringBootApplication
-public class TheKeySiteCrawlerApplication {
+public class BlogServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TheKeySiteCrawlerApplication.class, args);
+        SpringApplication.run(BlogServiceApplication.class, args);
     }
 
     @Bean
@@ -26,6 +27,9 @@ public class TheKeySiteCrawlerApplication {
                 blog.setTitle(name);
                 blog.setCreationDate(Date.from(Instant.now()));
                 blog.setContent("content");
+                var map = new HashMap<String, Integer>();
+                map.put("test", 5);
+                blog.setCountOfWords(map);
                 blogRepository.save(blog);
             });
             blogRepository.findAll().forEach(blog -> System.out.println(blog.getTitle()));
