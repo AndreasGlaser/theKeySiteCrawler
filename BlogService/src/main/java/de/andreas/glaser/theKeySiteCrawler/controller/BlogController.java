@@ -14,8 +14,6 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:9090"})
 public class BlogController {
 
-    // standard constructors
-
     private final BlogRepository blogRepository;
 
     public BlogController(BlogRepository blogRepository) {
