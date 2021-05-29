@@ -36,7 +36,27 @@ public class BlogWordCountProcessor implements ItemProcessor<Blog, Blog> {
     }
 
     private String cleanText(String content) {
-        return content;//TODO Cleaning
+        var cleanedContent = removeTags(content);
+        cleanedContent = replaceNewLines(cleanedContent);
+        cleanedContent = removeNonWordChars(cleanedContent);
+        cleanedContent = reduceSpaces(cleanedContent);
+        return cleanedContent;
+    }
+
+    private String reduceSpaces(String text) {
+        return text.replaceAll(" {2,}", " ");
+    }
+
+    private String removeNonWordChars(String text) {
+        return text.replaceAll("[\\d,.\"?!-‑:;–„|“‚‘]", "");
+    }
+
+    private String replaceNewLines(String text) {
+        return text.replaceAll("\n", " ");
+    }
+
+    private String removeTags(String text) {
+        return text.replaceAll("\\<.*?\\>", "");
     }
 
     private Integer countOccurrences(String word, List<String> words) {
