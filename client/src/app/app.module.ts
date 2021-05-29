@@ -8,6 +8,7 @@ import { BlogComponent } from './blog/blog.component';
 import {BlogService} from "./blog-service.service";
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BlogsComponent,
     BlogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FormsModule
+    ],
   providers: [BlogService],
   bootstrap: [AppComponent]
 })
