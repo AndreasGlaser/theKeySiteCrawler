@@ -21,4 +21,8 @@ export class BlogService {
   public read(blog: Blog) {
     return this.http.get<Blog>(this.blogsUrl + blog.id);
   }
+
+  find(blogId: number): Observable<Blog> {
+    return this.http.get<Blog>(this.blogsUrl + blogId);
+  }
 }

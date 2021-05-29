@@ -3,7 +3,7 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">ID</th>
         <th scope="col">Titel</th>
         <th scope="col">Erstellungsdatum</th>
         <th scope="col">Inhalt</th>
@@ -12,13 +12,9 @@
       <tbody>
       <tr *ngFor="let blog of blogs">
         <td>{{ blog.id }}</td>
-        <td><a href="blogs/{{blog.id}}">{{ blog.title }}</a></td>
+        <td><a [routerLink]="['/blogs', blog.id]">{{ blog.title }}</a></td>
         <td>{{ blog.creationDate }}</td>
         <td>{{ blog.content}}</td>
-
-        <td><div *ngFor="let item of blog.countOfWords | keyvalue">
-          Wort: <b>{{item.key}}</b> Anzahl: <b>{{item.value}}</b>
-        </div></td>
       </tr>
       </tbody>
     </table>
